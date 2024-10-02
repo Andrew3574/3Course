@@ -30,7 +30,7 @@ jobs:
         continue-on-error: true
         
       - name: Restore dependencies
-        run: dotnet restore 3course\SportApp\SportApp.sln
+        run: dotnet restore 3Course\SportApp\SportApp.sln
 
       - name: Build the solution
         run: dotnet build SportApp.sln --configuration Release --no-restore
