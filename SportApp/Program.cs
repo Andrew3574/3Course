@@ -14,50 +14,43 @@ namespace SportApp
             using (db) 
             {
                 var users = db.Users.ToList();
-                foreach (User user in users) 
-                { 
-                    Console.WriteLine($"{user.Login} - {user.Email}"); 
-                }
+                var u = users.FirstOrDefault();
+                Console.WriteLine($"{u.Login} - {u.Email}");                 
 
                 Console.ReadLine();
                 Console.Clear();
 
-                var sortedUsers = users.Where(u => u.Login!.Length < 5);
+                var sortedUser = users.Where(u => u.Login!.Length < 5).FirstOrDefault();
 
-                foreach (User user in sortedUsers)
-                {
-                    Console.WriteLine($"{user.Login} - {user.Email}");
-                }
+                Console.WriteLine($"{sortedUser!.Login} - {sortedUser.Email}");
+                
 
                 Console.ReadLine();
                 Console.Clear();
 
-                var sets = db.Sets
-                    .Include(u=>u.User)
-                    .ToList();
 
-                var countSets = sets
+                var sets = db.Sets.Include(u=>u.User).ToList();
+
+                var countSet = sets
                     .GroupBy(u=>u.User!.Login)
                     .Select(g => new
                     {
                         g.Key,
                         Count = g.Count()
-                    });
+                    })
+                    .FirstOrDefault();
 
-                foreach (var set in countSets)
-                {
-                    Console.WriteLine($"{set.Key} - {set.Count}");
-                }
+                
+                Console.WriteLine($"{countSet.Key} - {countSet.Count}");
+                
 
-                foreach (var set in sets)
-                {
-                    Console.WriteLine($"{set.Name} - {set.User!.Login}");
-                }
+                var vset = sets.FirstOrDefault();
+                Console.WriteLine($"{vset.Name} - {vset.User!.Login}");
+                
 
-                var sortedSets = sets.Where(u => u.User!.Login.Length < 5);
+                var sortedSet = sets.Where(u => u.User!.Login!.Length < 5).FirstOrDefault();
+                Console.WriteLine($"{sortedSet!.Name} - {sortedSet.User!.Login}"); 
 
-                foreach(var set in sortedSets)
-                { Console.WriteLine($"{set.Name} - {set.User!.Login}"); }
 
                 User user1 = new User()
                 {
@@ -69,6 +62,10 @@ namespace SportApp
                 db.Users.Add(user1);
                 db.SaveChanges();
 
+                Console.WriteLine($"Added user: {user1.Login} {user1.Email}");
+
+
+
                 Set set1 = new Set()
                 {
                     Name="qwertySet",
@@ -79,10 +76,17 @@ namespace SportApp
                 db.Sets.Add(set1);
                 db.SaveChanges();
 
+                user1.Login = "HumanName";
+                db.Users.Update(user1);
+                Console.WriteLine($"Updated user: {user1.Login} {user1.Email}");
+
                 db.Users.Remove(user1);
                 db.SaveChanges();
 
+
             }
+
+
         }
     }
 }

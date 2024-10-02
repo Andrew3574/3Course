@@ -38,8 +38,7 @@
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T18:10:55.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-29T18:10:55.942Z"
             },
             {
               "$type": "Document",
@@ -51,8 +50,7 @@
               "RelativeToolTip": "SportDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T18:09:55.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-29T18:09:55.451Z"
             },
             {
               "$type": "Document",
@@ -60,9 +58,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\3course\\\u0411\u0414\\SportApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\3course\\\u0411\u0414\\SportApp\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAIwFMAAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\3course\\\u0411\u0414\\SportApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-27T11:39:43.882Z",
               "EditorCaption": ""
