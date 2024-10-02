@@ -27,7 +27,8 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-
+        continue-on-error: true
+        
       - name: Restore dependencies
         run: dotnet restore 3course\SportApp\SportApp.sln
 
