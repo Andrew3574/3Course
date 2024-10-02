@@ -29,7 +29,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
 
       - name: Restore dependencies
-        run: dotnet restore SportApp.sln
+        run: dotnet restore 3course\SportApp\SportApp.sln
 
       - name: Build the solution
         run: dotnet build SportApp.sln --configuration Release --no-restore
