@@ -29,6 +29,6 @@ Id int identity(1,1) primary key,
 [SetId] int references [Sets] (SetId) on delete cascade,
 [RepeatsNumber] int not null,
 [IterationNumber] int not null,
-[RepeatsDelay] time not null,
-[RestTimeAfter] time not null
+[RepeatsDelay] time(0) not null,
+[RestTimeAfter] time(0) not null
 );

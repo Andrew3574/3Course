@@ -18,7 +18,13 @@ declare @Symbol CHAR(52)= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 		@SetName varchar(32),
 		@MinUserId int,
 		@MaxUserId int,
-		@UserId int
+		@UserId int,
+		@ExcerciseId int,
+		@SetId int,
+		@TimeDelay time,
+		@RestTimeAfter time,
+		@Minute int,
+		@Second int
 
 set @NumberUsers = 500
 set @NumberSets = 20000
@@ -29,6 +35,8 @@ set @MaxNumSymbols = 20
 
 
 begin transaction
+
+--
 
 	select @i=0 from dbo.Users with (tablockx) where 1=0
 
@@ -69,7 +77,7 @@ begin transaction
 			set @RowCount+=1
 		end
 
-
+--
 	
 	select @i=0 from [Sets] with (tablockx) where 1=0
 		
@@ -96,8 +104,25 @@ begin transaction
 			set @RowCount+=1
 		end
 
+--
+
 		select @i=0 from SetExcercises with (tablockx) where 1=0
 
+		set @i=1
+		set @RowCount=1
+
+		while @RowCount<=@NumberSetExcercises
+		begin
+
+		set @ExcerciseId = (select top 1 ExcerciseId from Excercises order by NEWID())
+		set @SetId = (select top 1 SetId from [Sets] order by NEWID())
+		set @TimeDelay = '00:05:00'
+		set @RestTimeAfter = '00:08:00'
+
+		insert into SetExcercises(ExcerciseId,SetId,RepeatsNumber,IterationNumber,RepeatsDelay,RestTimeAfter) select @ExcerciseId,@SetId,Rand()*4+1,RAND()*15+1,@TimeDelay,@RestTimeAfter
+		
+		set @RowCount+=1
+		end
 
 
 
