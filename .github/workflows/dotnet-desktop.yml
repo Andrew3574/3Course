@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [windows-latest,ubuntu-latest]  # Компиляция на разных платформах
+        os: [ubuntu-latest,windows-latest]  # Компиляция на разных платформах
         dotnet-version: ['8.0.x']            # Используем .NET 8.0
 
     steps:
